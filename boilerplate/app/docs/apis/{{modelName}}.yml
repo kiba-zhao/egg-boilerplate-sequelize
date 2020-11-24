@@ -1,0 +1,151 @@
+apis:
+  allow:
+    tags:
+      - {{modelName}}
+    summary: {{desc}}资源支持的操作
+    responses:
+      200:
+        description: options
+  index:
+    tags:
+      - {{modelName}}
+    summary: 罗列所有{{desc}}资源
+    responses:
+      200:
+        description: success
+        content:
+          application/json:
+            schema:
+              title: 资源列表
+              type: array
+              items:
+                allOf:
+                - $ref: '#/components/schemas/{{modelName}}'
+                - $ref: '../definitions.yml#/components/schemas/resource'
+      404:
+        description: not found
+  post:
+    tags:
+      - {{modelName}}
+    summary: 新增{{desc}}资源
+    requestBody:
+      description: 新建数据内容
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/{{modelName}}'
+      required: true      
+    responses:
+      201:
+        description: create success
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/{{modelName}}'
+                - $ref: '../definitions.yml#/components/schemas/resource'
+  clean:
+    tags:
+      - {{modelName}}
+    summary: 清理所有{{desc}}资源
+    responses:
+      204:
+        description: clean all success
+      404:
+        description: not found
+  options:
+    tags:
+      - {{modelName}}
+    summary: {{desc}}资源支持的操作
+    responses:
+      200:
+        description: {{desc}}
+  head:
+    tags:
+      - {{modelName}}
+    summary: 获取{{desc}}数据大小信息
+    parameters:
+      - $ref: '#/components/parameters/path{{modelName}}Id'
+    responses:
+      200:
+        description: success
+      404:
+        description: not found
+  get:
+    tags:
+      - {{modelName}}
+    summary: 获取{{desc}}
+    parameters:
+      - $ref: '#/components/parameters/path{{modelName}}Id'      
+    responses:
+      200:
+        description: success
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/{{modelName}}'
+                - $ref: '../definitions.yml#/components/schemas/resource'
+      404:
+        description: not found
+  put:
+    tags:
+      - {{modelName}}    
+    summary: 修改{{desc}}
+    parameters:
+      - $ref: '#/components/parameters/path{{modelName}}Id'
+    requestBody:
+      description: 修改数据内容
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/{{modelName}}'
+      required: true
+    responses:
+      200:
+        description: success
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/{{modelName}}'
+                - $ref: '../definitions.yml#/components/schemas/resource'
+      404:
+        description: not found
+  patch:
+    tags:
+      - {{modelName}}
+    summary: 更新{{desc}}
+    parameters:
+      - $ref: '#/components/parameters/path{{modelName}}Id'
+    requestBody:
+      description: 更新数据内容
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/{{modelName}}'
+      required: true
+    responses:
+      200:
+        description: success
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/{{modelName}}'
+                - $ref: '../definitions.yml#/components/schemas/resource'
+      404:
+        description: not found
+components:
+  parameters:
+    path{{modelName}}Id:
+      name: {{modelName}}Id
+      in: path
+      description: {{desc}} ID
+      schema:
+        type: string
+      required: true
+  schemas:
+    {{modelName}}:
+      title: 资源
+      type: object        

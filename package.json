@@ -1,0 +1,44 @@
+{
+  "name": "egg-boilerplate-sequelize-api",
+  "version": "1.0.2",
+  "description": "init egg sequelize restful api",
+  "scripts": {
+    "autod": "autod",
+    "lint": "eslint .",
+    "test": "npm run lint -- --fix && npm run build",
+    "ci": "npm run test",
+    "build": "egg-init dist --force --silent --template=./"
+  },
+  "homepage": "https://github.com/kiba-zhao/egg-boilerplate-sequelize-api",
+  "bugs": "https://github.com/kiba-zhao/egg-boilerplate-sequelize-api/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kiba-zhao/egg-boilerplate-sequelize-api.git"
+  },
+  "author": "kiba.x.zhao<kiba.rain@qq.com>",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^14.14.9",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.8.1",
+    "egg-init": "^1.14.1",
+    "egg-mock": "^3.19.2",
+    "eslint": "^5.3.0",
+    "eslint-config-egg": "^7.0.0"
+  },
+  "eslintIgnore": [
+    "coverage",
+    "dist"
+  ],
+  "ci": {
+    "version": "8"
+  },
+  "files": [
+    "index.js",
+    "boilerplate"
+  ]
+}
