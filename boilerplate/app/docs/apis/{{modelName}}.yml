@@ -3,6 +3,9 @@ apis:
     tags:
       - {{modelName}}
     summary: {{desc}}资源支持的操作
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
     responses:
       200:
         description: options
@@ -10,6 +13,9 @@ apis:
     tags:
       - {{modelName}}
     summary: 罗列所有{{desc}}资源
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
     responses:
       200:
         description: success
@@ -21,13 +27,16 @@ apis:
               items:
                 allOf:
                 - $ref: '#/components/schemas/{{modelName}}'
-                - $ref: '../definitions.yml#/components/schemas/resource'
+                - $ref: '../openapi.yml#/components/schemas/resource'
       404:
         description: not found
   post:
     tags:
       - {{modelName}}
     summary: 新增{{desc}}资源
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'    
     requestBody:
       description: 新建数据内容
       content:
@@ -43,11 +52,14 @@ apis:
             schema:
               allOf:
                 - $ref: '#/components/schemas/{{modelName}}'
-                - $ref: '../definitions.yml#/components/schemas/resource'
+                - $ref: '../openapi.yml#/components/schemas/resource'
   clean:
     tags:
       - {{modelName}}
     summary: 清理所有{{desc}}资源
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
     responses:
       204:
         description: clean all success
@@ -57,6 +69,10 @@ apis:
     tags:
       - {{modelName}}
     summary: {{desc}}资源支持的操作
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
+      - $ref: '#/components/parameters/path{{modelName}}Id'
     responses:
       200:
         description: {{desc}}
@@ -65,17 +81,34 @@ apis:
       - {{modelName}}
     summary: 获取{{desc}}数据大小信息
     parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
       - $ref: '#/components/parameters/path{{modelName}}Id'
     responses:
       200:
         description: success
       404:
         description: not found
+  delete:
+    tags:
+      - {{modelName}}
+    summary: 删除{{desc}}
+    parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
+      - $ref: '#/components/parameters/path{{modelName}}Id'
+    responses:
+      204:
+        description: clean all success
+      404:
+        description: not found        
   get:
     tags:
       - {{modelName}}
     summary: 获取{{desc}}
     parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
       - $ref: '#/components/parameters/path{{modelName}}Id'      
     responses:
       200:
@@ -85,7 +118,7 @@ apis:
             schema:
               allOf:
                 - $ref: '#/components/schemas/{{modelName}}'
-                - $ref: '../definitions.yml#/components/schemas/resource'
+                - $ref: '../openapi.yml#/components/schemas/resource'
       404:
         description: not found
   put:
@@ -93,6 +126,8 @@ apis:
       - {{modelName}}    
     summary: 修改{{desc}}
     parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
       - $ref: '#/components/parameters/path{{modelName}}Id'
     requestBody:
       description: 修改数据内容
@@ -109,7 +144,7 @@ apis:
             schema:
               allOf:
                 - $ref: '#/components/schemas/{{modelName}}'
-                - $ref: '../definitions.yml#/components/schemas/resource'
+                - $ref: '../openapi.yml#/components/schemas/resource'
       404:
         description: not found
   patch:
@@ -117,6 +152,8 @@ apis:
       - {{modelName}}
     summary: 更新{{desc}}
     parameters:
+      - $ref: '../openapi.yml#/components/parameters/headerAppId'
+      - $ref: '../openapi.yml#/components/parameters/headerAuthId'
       - $ref: '#/components/parameters/path{{modelName}}Id'
     requestBody:
       description: 更新数据内容
@@ -133,7 +170,7 @@ apis:
             schema:
               allOf:
                 - $ref: '#/components/schemas/{{modelName}}'
-                - $ref: '../definitions.yml#/components/schemas/resource'
+                - $ref: '../openapi.yml#/components/schemas/resource'
       404:
         description: not found
 components:
