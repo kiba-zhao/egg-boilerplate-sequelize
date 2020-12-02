@@ -1,7 +1,7 @@
 {
-  "name": "egg-boilerplate-sequelize-api",
+  "name": "egg-boilerplate-sequelize-biz",
   "version": "1.0.2",
-  "description": "init egg sequelize restful api",
+  "description": "init egg sequelize biz quick build",
   "scripts": {
     "autod": "autod",
     "lint": "eslint .",
@@ -9,11 +9,11 @@
     "ci": "npm run test",
     "build": "egg-init dist --force --silent --template=./"
   },
-  "homepage": "https://github.com/kiba-zhao/egg-boilerplate-sequelize-api",
-  "bugs": "https://github.com/kiba-zhao/egg-boilerplate-sequelize-api/issues",
+  "homepage": "https://github.com/kiba-zhao/egg-boilerplate-sequelize",
+  "bugs": "https://github.com/kiba-zhao/egg-boilerplate-sequelize/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:kiba-zhao/egg-boilerplate-sequelize-api.git"
+    "url": "git@github.com:kiba-zhao/egg-boilerplate-sequelize.git"
   },
   "author": "kiba.x.zhao<kiba.rain@qq.com>",
   "dependencies": {
